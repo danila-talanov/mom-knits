@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрузка изображений - Мама вяжет</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f7fafc;
+        }
+        .upload-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #e53e3e;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #1a202c;
+            margin-bottom: 20px;
+        }
+        .upload-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 2px dashed #e2e8f0;
+            border-radius: 10px;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+        .upload-item:hover {
+            border-color: #e53e3e;
+        }
+        .upload-item input[type="file"] {
+            display: none;
+        }
+        .upload-item label {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #e53e3e;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .upload-item label:hover {
+            background: #c53030;
+        }
+        .file-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #718096;
+        }
+        .preview {
+            margin-top: 15px;
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 8px;
+            display: none;
+        }
+        .instructions {
+            background: #fef5e7;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .instructions h3 {
+            color: #92400e;
+            margin-top: 0;
+        }
+        .instructions ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+            color: #78350f;
+        }
+    </style>
+</head>
+<body>
+    <h1>📸 Загрузка изображений для сайта "Мама вяжет"</h1>
+    
+    <div class="instructions">
+        <h3>📋 Инструкции по загрузке:</h3>
+        <ul>
+            <li><strong>Формат:</strong> JPG или JPEG</li>
+            <li><strong>Размер:</strong> Рекомендуется 800x600px или 1200x800px</li>
+            <li><strong>Качество:</strong> Оптимизируйте для веба (не более 500KB)</li>
+            <li><strong>Фон:</strong> Желательно однородный для лучшего выделения игрушек</li>
+        </ul>
+    </div>
+
+    <div class="upload-section">
+        <h2>🖼️ Галерея работ</h2>
+        
+        <div class="upload-item">
+            <h4>Вязаная корзинка</h4>
+            <p>Светлая корзинка с ручкой на тёмно-зелёном фоне</p>
+            <label for="basket">Выбрать файл</label>
+            <input type="file" id="basket" accept=".jpg,.jpeg" onchange="handleFileSelect(this, 'basket')">
+            <div class="file-info" id="basket-info"></div>
+            <img class="preview" id="basket-preview">
+        </div>
+
+        <div class="upload-item">
+            <h4>Игрушка-монстрик</h4>
+            <p>Жёлто-оранжевый пушистый монстрик с большими глазами</p>
+            <label for="monster">Выбрать файл</label>
+            <input type="file" id="monster" accept=".jpg,.jpeg" onchange="handleFileSelect(this, 'monster')">
+            <div class="file-info" id="monster-info"></div>
+            <img class="preview" id="monster-preview">
+        </div>
+
+        <div class="upload-item">
+            <h4>Собачка</h4>
+            <p>Тёмно-коричневая собачка с красным бантиком</p>
+            <label for="dog">Выбрать файл</label>
+            <input type="file" id="dog" accept=".jpg,.jpeg" onchange="handleFileSelect(this, 'dog')">
+            <div class="file-info" id="dog-info"></div>
+            <img class="preview" id="dog-preview">
+        </div>
+
+        <div class="upload-item">
+            <h4>Белая игрушка</h4>
+            <p>Белая пушистая игрушка с чёрными деталями и фиолетовой полосой</p>
+            <label for="white">Выбрать файл</label>
+            <input type="file" id="white" accept=".jpg,.jpeg" onchange="handleFileSelect(this, 'white')">
+            <div class="file-info" id="white-info"></div>
+            <img class="preview" id="white-preview">
+        </div>
+
+        <div class="upload-item">
+            <h4>Овечка</h4>
+            <p>Пушистая белая овечка с голубым бантиком и розовыми ушками</p>
+            <label for="sheep">Выбрать файл</label>
+            <input type="file" id="sheep" accept=".jpg,.jpeg" onchange="handleFileSelect(this, 'sheep')">
+            <div class="file-info" id="sheep-info"></div>
+            <img class="preview" id="sheep-preview">
+        </div>
+
+        <div class="upload-item">
+            <h4>Обезьянка</h4>
+            <p>Коричневая обезьянка с зелёной сеткой и фруктами</p>
+            <label for="monkey">Выбрать файл</label>
+            <input type="file" id="monkey" accept=".jpg,.jpeg" onchange="handleFileSelect(this, 'monkey')">
+            <div class="file-info" id="monkey-info"></div>
+            <img class="preview" id="monkey-preview">
+        </div>
+    </div>
+
+    <div class="upload-section">
+        <h2>👩‍🎨 Фото мастера</h2>
+        
+        <div class="upload-item">
+            <h4>Фото мастера</h4>
+            <p>Фото мастера с вязаной куклой (рекомендуется квадратное)</p>
+            <label for="master">Выбрать файл</label>
+            <input type="file" id="master" accept=".jpg,.jpeg" onchange="handleFileSelect(this, 'master')">
+            <div class="file-info" id="master-info"></div>
+            <img class="preview" id="master-preview">
+        </div>
+    </div>
+
+    <div class="upload-section">
+        <h2>📁 Готовые файлы для скачивания</h2>
+        <p>После загрузки всех изображений, скачайте готовые файлы:</p>
+        <button onclick="downloadAll()" style="background: #10b981; color: white; padding: 15px 30px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+            📥 Скачать все изображения
+        </button>
+    </div>
+
+    <script>
+        function handleFileSelect(input, type) {
+            const file = input.files[0];
+            if (file) {
+                const info = document.getElementById(type + '-info');
+                const preview = document.getElementById(type + '-preview');
+                
+                // Показать информацию о файле
+                info.innerHTML = `
+                    <strong>Файл:</strong> ${file.name}<br>
+                    <strong>Размер:</strong> ${(file.size / 1024).toFixed(1)} KB<br>
+                    <strong>Тип:</strong> ${file.type}
+                `;
+                
+                // Показать превью
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+                
+                // Сохранить файл в localStorage для скачивания
+                localStorage.setItem(type + '_image', file.name);
+            }
+        }
+
+        function downloadAll() {
+            alert('Функция скачивания будет добавлена позже. Пока что просто скопируйте выбранные файлы в папку images/ вашего сайта.');
+        }
+    </script>
+</body>
+</html>
