@@ -124,6 +124,10 @@ h1, h2, h3, h4, h5, h6 {
     border-bottom: 3px solid #000000;
     position: relative;
     overflow: hidden;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.1) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 2px, transparent 2px);
+    background-size: 12px 12px;
 }
 
 .hero-container {
@@ -198,30 +202,30 @@ h1, h2, h3, h4, h5, h6 {
     background: #FACC15;
 }
 
-/* Floating Toys Animation */
+/* Floating Yarn Animation */
 .hero-visual {
     position: relative;
     height: 400px;
 }
 
-.floating-toys {
+.floating-yarn {
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.toy {
+.yarn {
     position: absolute;
-    font-size: 5rem;
+    font-size: 3.8rem;
     animation: float-brutal 4s ease-in-out infinite;
     filter: drop-shadow(4px 4px 0 rgba(0,0,0,0.2));
 }
 
-.toy-1 { top: 20%; left: 20%; animation-delay: 0s; }
-.toy-2 { top: 60%; left: 10%; animation-delay: 0.5s; }
-.toy-3 { top: 30%; right: 20%; animation-delay: 1s; }
-.toy-4 { bottom: 20%; right: 30%; animation-delay: 1.5s; }
-.toy-5 { top: 10%; right: 10%; animation-delay: 2s; }
+.yarn-1 { top: 15%; left: 25%; animation-delay: 0s; }
+.yarn-2 { top: 55%; left: 15%; animation-delay: 0.5s; }
+.yarn-3 { top: 25%; right: 25%; animation-delay: 1s; }
+.yarn-4 { bottom: 15%; right: 20%; animation-delay: 1.5s; }
+.yarn-5 { top: 5%; right: 15%; animation-delay: 2s; }
 
 @keyframes float-brutal {
     0%, 100% { transform: translateY(0px) rotate(-3deg); }
@@ -376,7 +380,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gallery-image {
-    height: 250px;
+    height: 280px;
     overflow: hidden;
     border-bottom: 3px solid #000000;
 }
@@ -621,6 +625,10 @@ h1, h2, h3, h4, h5, h6 {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    #contact > .container > div {
+        grid-template-columns: 1fr;
     }
     
     .features {
