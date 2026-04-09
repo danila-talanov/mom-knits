@@ -1,247 +1,346 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html class="scroll-smooth" lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Маша вяжет - Вязаные игрушки ручной работы</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Маша вяжет — Вязаные игрушки с душой</title>
     <meta name="description" content="Ручная работа из пряжи крючком. Игрушки для детей, родных и питомцев. Делаю по фото и любым запросам.">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e9e9dd",
+                        "outline-variant": "#d6c1c5",
+                        "inverse-primary": "#ffb1c3",
+                        "primary-fixed-dim": "#ffb1c3",
+                        "surface-bright": "#fbfaee",
+                        "surface-container-low": "#f5f4e8",
+                        "error": "#ba1a1a",
+                        "tertiary": "#745945",
+                        "secondary": "#366758",
+                        "on-primary": "#ffffff",
+                        "surface": "#fbfaee",
+                        "on-primary-container": "#733949",
+                        "tertiary-fixed-dim": "#e3c0a8",
+                        "primary-fixed": "#ffd9e0",
+                        "inverse-surface": "#303129",
+                        "surface-dim": "#dbdbcf",
+                        "on-primary-fixed": "#380a1a",
+                        "surface-container-highest": "#e4e3d7",
+                        "on-secondary-fixed-variant": "#1c4f41",
+                        "on-surface-variant": "#524346",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#5a422f",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f2f1e5",
+                        "tertiary-container": "#d8b69e",
+                        "on-tertiary-fixed": "#2a1708",
+                        "secondary-fixed": "#b9eedb",
+                        "on-surface": "#1b1c15",
+                        "surface-variant": "#e4e3d7",
+                        "on-tertiary-container": "#604734",
+                        "on-secondary-container": "#3a6c5d",
+                        "surface-tint": "#894c5c",
+                        "outline": "#847376",
+                        "on-primary-fixed-variant": "#6e3545",
+                        "on-error-container": "#93000a",
+                        "primary": "#894c5c",
+                        "background": "#fbfaee",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1b1c15",
+                        "secondary-fixed-dim": "#9dd1bf",
+                        "surface-container": "#efeee3",
+                        "secondary-container": "#b6ebd8",
+                        "primary-container": "#f4a7b9",
+                        "on-secondary-fixed": "#002018",
+                        "tertiary-fixed": "#ffdcc4",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .stitch-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20c5 0 5-5 10-5s5 5 10 5 5-5 10-5 5 5 10 5' fill='none' stroke='%23894c5c' stroke-width='1' stroke-opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .bouncy-hover {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .bouncy-hover:hover {
+            transform: scale(1.05);
+        }
+        .bouncy-hover:active {
+            transform: scale(0.95);
+        }
+    </style>
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <div class="nav-container">
-                <div class="logo">
-                    <h1>Маша вяжет</h1>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Главная</a></li>
-                    <li><a href="#about" class="nav-link">Моя история</a></li>
-                    <li><a href="#gallery" class="nav-link">Работы</a></li>
-                    <li><a href="#contact" class="nav-link">Контакты</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-md shadow-sm shadow-[#1b1c15]/5">
+        <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+            <div class="text-2xl font-bold tracking-tight text-[#894c5c]">Маша вяжет</div>
+            <div class="hidden md:flex items-center gap-8 font-headline text-sm font-semibold tracking-tight">
+                <a class="text-[#894c5c] border-b-2 border-[#894c5c] pb-1" href="#home">Главная</a>
+                <a class="text-[#1b1c15]/60 hover:text-[#894c5c] transition-colors" href="#story">Моя история</a>
+                <a class="text-[#1b1c15]/60 hover:text-[#894c5c] transition-colors" href="#gallery">Работы</a>
+                <a class="text-[#1b1c15]/60 hover:text-[#894c5c] transition-colors" href="#reviews">Отзывы</a>
+                <a class="text-[#1b1c15]/60 hover:text-[#894c5c] transition-colors" href="#contact">Контакты</a>
             </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h2 class="hero-title">Вязаные игрушки<br>крючком</h2>
-                <p class="hero-subtitle">Ручная работа из пряжи для детей, родных и любимых питомцев. Делаю по фото, по референсам, под любые запросы.</p>
-                <div class="hero-buttons">
-                    <a href="#gallery" class="btn btn-primary">Посмотреть работы</a>
-                    <a href="#about" class="btn btn-secondary">Узнать больше</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="floating-yarn">
-                    <div class="yarn yarn-1">🧶</div>
-                    <div class="yarn yarn-2">🪡</div>
-                    <div class="yarn yarn-3">🧵</div>
-                    <div class="yarn yarn-4">🧶</div>
-                    <div class="yarn yarn-5">🪢</div>
-                </div>
-            </div>
+            <a href="#contact" class="bg-primary text-on-primary px-6 py-2.5 rounded-xl font-headline text-sm font-bold tracking-tight hover:scale-105 transition-transform duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] active:scale-95">
+                Заказать друга
+            </a>
         </div>
-    </section>
+    </nav>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Моя история</h2>
-            <p class="section-subtitle">О том как появляются эти игрушки</p>
-        </div>
-            <div class="about-content">
-                <div class="about-text">
-            <h3>Обо мне</h3>
-            <p>Вяжу в свободное от работы время как элемент творчества, чтобы дарить другим радостные эмоции.</p>
-            <p>Каждая игрушка создаётся с особым вниманием и любовью. Делаю по фото, по референсам, под любые запросы.</p>
-                    <div class="features">
-                    <div class="feature">
-                        <div class="feature-icon">🧶</div>
-                        <h4>Качественные материалы</h4>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-[90vh] flex items-center overflow-hidden px-8">
+            <div class="absolute inset-0 stitch-pattern opacity-40"></div>
+            <div class="absolute -top-24 -right-24 w-[40rem] h-[40rem] bg-primary-container/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-surface to-transparent"></div>
+            <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold tracking-widest uppercase">
+                        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        Связано с любовью
                     </div>
-                    <div class="feature">
-                        <div class="feature-icon">💛</div>
-                        <h4>Ручная работа с любовью</h4>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🎨</div>
-                        <h4>Уникальный дизайн</h4>
-                    </div>
+                    <h1 class="font-headline text-6xl md:text-8xl font-extrabold text-on-surface leading-[1.1] tracking-tight">
+                        Вязаные игрушки <br/>
+                        <span class="text-primary italic">с душой</span>
+                    </h1>
+                    <p class="text-xl text-on-surface-variant max-w-lg leading-relaxed">
+                        Каждая петелька — это история. Создаю уникальных плюшевых друзей, которые приносят тепло и уют в ваш дом.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#gallery" class="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline font-bold text-lg bouncy-hover shadow-lg shadow-primary/20">
+                            Смотреть работы
+                        </a>
+                        <a href="#story" class="bg-surface-container-low text-secondary px-8 py-4 rounded-xl font-headline font-bold text-lg bouncy-hover">
+                            Узнать историю
+                        </a>
                     </div>
                 </div>
-                <div class="about-image">
-                    <img src="images/master-photo.jpg" alt="Фото мастера с вязаной куклой на фоне морском закате" class="master-photo" onerror="this.src='images/master-photo.svg'">
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-primary/5 rounded-[3rem] rotate-3 transition-transform group-hover:rotate-1 group-hover:scale-105 duration-700"></div>
+                    <div class="relative rounded-[2.5rem] overflow-hidden aspect-square shadow-2xl shadow-on-surface/5">
+                        <img alt="Вязаная игрушка" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6HWJdpEi96vmRkBSvsJ8LBam9KBgN0IvAaVG8W-o7FL4v6UivBJmaz11Nrv4muukkA0eB05EP13NN4RqNwjFlhP_cv4R4kvk17zUQ92OYmVDDeUfW4aCjVtW7OYgii9g_UOle6v-H59zyThdCigLx97_GGAJaQUYGh5rlOtWPpIk9VkSE6i1v2Sn9pRDEDN5eBvJRAN3QxOY8nerxv18NRTKoYoiCJ2vAPdTGQSJ8FjSvr-uhdwH9DVghvoLR81T8pUuZo8WxFxo"/>
+                        <div class="absolute bottom-6 left-6 right-6 p-6 bg-surface/70 backdrop-blur-md rounded-2xl border border-white/20">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-xl font-headline font-bold text-on-surface">Мишка Обнимашка</p>
+                                </div>
+                                <div class="bg-primary text-on-primary h-12 w-12 rounded-full flex items-center justify-center">
+                                    <span class="material-symbols-outlined">favorite</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Галерея работ</h2>
-                <p class="section-subtitle">Посмотрите на чудесные вязаные игрушки</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="images/Гномик.jpg" alt="Вязаный гномик" class="gallery-img">
+        <!-- My Story Section -->
+        <section class="py-32 px-8 bg-surface-container-low relative overflow-hidden" id="story">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-5 relative">
+                    <div class="aspect-[4/5] rounded-lg overflow-hidden relative z-20 shadow-xl">
+                        <img alt="Маша — создательница" class="w-full h-full object-cover" src="images/master-photo.jpg"/>
                     </div>
-                    <div class="gallery-caption">
-                        <h4>Гномик</h4>
-                        <p>Милый добрый гномик</p>
+                    <div class="absolute -bottom-8 -right-8 w-64 h-64 bg-primary/10 rounded-full z-10 blur-2xl"></div>
+                    <div class="absolute top-12 -left-12 w-48 h-48 bg-secondary/10 rounded-full z-10 blur-xl"></div>
+                    <div class="absolute -bottom-12 -left-12 p-8 bg-white rounded-2xl shadow-xl z-30 max-w-[200px]">
+                        <p class="text-4xl font-headline font-extrabold text-primary">5+</p>
+                        <p class="text-sm text-on-surface-variant font-medium">Лет творческого пути в каждой игрушке</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="images/Девочка.jpg" alt="Вязаная девочка" class="gallery-img">
-                    </div>
-                    <div class="gallery-caption">
-                        <h4>Девочка</h4>
-                        <p>Нежная куколка</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="images/Лягушонок.jpg" alt="Вязаный лягушонок" class="gallery-img">
-                    </div>
-                    <div class="gallery-caption">
-                        <h4>Лягушонок</h4>
-                        <p>Зелёный весёлый друг</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="images/Овечка.jpg" alt="Вязаная овечка" class="gallery-img">
-                    </div>
-                    <div class="gallery-caption">
-                        <h4>Овечка</h4>
-                        <p>Пушистая милашка</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="images/Собачка.jpg" alt="Вязаная собачка" class="gallery-img">
-                    </div>
-                    <div class="gallery-caption">
-                        <h4>Собачка</h4>
-                        <p>Верный пушистый друг</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <img src="images/Собачка с божьими коровками.jpg" alt="Вязаная собачка с божьими коровками" class="gallery-img">
-                    </div>
-                    <div class="gallery-caption">
-                        <h4>Собачка с божьими коровками</h4>
-                        <p>Очень милая собачка</p>
+                <div class="lg:col-span-7 space-y-8">
+                    <h2 class="font-headline text-5xl font-extrabold text-on-surface tracking-tight">Моя история</h2>
+                    <div class="space-y-6 text-lg text-on-surface-variant leading-relaxed">
+                        <p>
+                            Привет! Меня зовут Маша, и я верю, что вещи, созданные вручную, обладают особой магией. То, что начиналось как простое хобби холодными вечерами, переросло в творческий путь.
+                        </p>
+                        <p>
+                            Для меня вязание — это не просто переплетение нитей. Это способ передать тепло, заботу и радостные эмоции. Каждый гном, каждая кукла или забавный лягушонок создаются с мыслью о том, что они станут верными друзьями для кого-то особенного.
+                        </p>
+                        <div class="grid grid-cols-2 gap-8 pt-4">
+                            <div class="space-y-2">
+                                <span class="material-symbols-outlined text-primary text-3xl">eco</span>
+                                <h4 class="font-bold text-on-surface">Натурально</h4>
+                                <p class="text-sm">Использую только качественную пряжу и безопасный наполнитель.</p>
+                            </div>
+                            <div class="space-y-2">
+                                <span class="material-symbols-outlined text-primary text-3xl">brush</span>
+                                <h4 class="font-bold text-on-surface">Уникально</h4>
+                                <p class="text-sm">Делаю по фото, референсам и под любые ваши запросы.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Reviews Section -->
-    <section class="gallery">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Отзывы</h2>
-                <p class="section-subtitle">Реальные игрушки для реальных людей</p>
+        <!-- Gallery of Works (Bento Grid) -->
+        <section class="py-32 px-8 max-w-7xl mx-auto" id="gallery">
+            <div class="text-center space-y-4 mb-20">
+                <h2 class="font-headline text-5xl font-extrabold text-on-surface tracking-tight">Галерея работ</h2>
+                <p class="text-on-surface-variant max-w-2xl mx-auto text-lg">Посмотрите на обитателей нашего вязаного мира. Каждый из них ждет своего человека.</p>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <video controls style="width: 100%; height: 100%; object-fit: contain;">
-                            <source src="Для_дочки.mp4" type="video/mp4">
-                        </video>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1: Gnome -->
+                <div class="md:col-span-2 group relative bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 bouncy-hover">
+                    <div class="aspect-[16/9] overflow-hidden">
+                        <img alt="Гномик" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="images/Гномик.jpg"/>
                     </div>
-                    <div class="gallery-caption">
-                        <h4>Для дочки</h4>
-                        <p>Игрушка для маленькой девочки</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="gallery-image">
-                        <video controls style="width: 100%; height: 100%; object-fit: contain;">
-                            <source src="Для_собачки.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="gallery-caption">
-                        <h4>Для собачки</h4>
-                        <p>Игрушка для любимого питомца</p>
+                    <div class="p-8 flex justify-between items-end">
+                        <div class="w-full">
+                            <span class="text-xs font-bold text-secondary uppercase tracking-widest">Коллекция: Лесные жители</span>
+                            <h3 class="text-3xl font-headline font-bold mt-2">Гномик</h3>
+                            <p class="text-on-surface-variant text-sm mt-1 italic">Милый добрый гномик</p>
+                        </div>
                     </div>
                 </div>
+                <!-- Card 2: Doll -->
+                <div class="group bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 bouncy-hover">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img alt="Куколка" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="images/Девочка.jpg"/>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-headline font-bold">Куколка</h3>
+                        <p class="text-on-surface-variant text-sm mt-1">Нежная и аккуратная работа</p>
+                    </div>
+                </div>
+                <!-- Card 3: Lamb -->
+                <div class="group bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 bouncy-hover">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img alt="Овечка" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="images/Овечка.jpg"/>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-headline font-bold">Овечка</h3>
+                        <p class="text-on-surface-variant text-sm mt-1">Пушистая и очень мягкая</p>
+                    </div>
+                </div>
+                <!-- Card 4: Frog & Dog (Wide) -->
+                <div class="md:col-span-2 grid md:grid-cols-2 gap-8">
+                    <div class="group bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 bouncy-hover">
+                        <div class="aspect-square overflow-hidden">
+                            <img alt="Лягушонок" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="images/Лягушонок.jpg"/>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-headline font-bold">Лягушонок</h3>
+                            <p class="text-on-surface-variant text-sm mt-1">Зеленый веселый друг</p>
+                        </div>
+                    </div>
+                    <div class="group bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 bouncy-hover">
+                        <div class="aspect-square overflow-hidden">
+                            <img alt="Собачка" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="images/Собачка.jpg"/>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-headline font-bold">Собачка</h3>
+                            <p class="text-on-surface-variant text-sm mt-1">Верный пушистый друг</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Связаться</h2>
-                <p class="section-subtitle">Напиши или позвони чтобы заказать игрушку</p>
+        <!-- Reviews Section -->
+        <section id="reviews" class="py-32 px-8 bg-surface-container-low">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center space-y-4 mb-20">
+                    <h2 class="font-headline text-5xl font-extrabold text-on-surface tracking-tight">Отзывы</h2>
+                    <p class="text-on-surface-variant max-w-2xl mx-auto text-lg">Реальные игрушки для реальных людей и их любимцев.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <div class="relative rounded-[2rem] overflow-hidden bg-black aspect-video shadow-2xl">
+                            <video controls class="w-full h-full object-contain">
+                                <source src="Для_дочки.mp4" type="video/mp4"/>
+                            </video>
+                        </div>
+                        <div class="px-4">
+                            <h4 class="font-headline font-bold text-2xl">Для дочки</h4>
+                            <p class="text-on-surface-variant">Радость от новой игрушки в детских руках.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div class="relative rounded-[2rem] overflow-hidden bg-black aspect-video shadow-2xl">
+                            <video controls class="w-full h-full object-contain">
+                                <source src="Для_собачки.mp4" type="video/mp4"/>
+                            </video>
+                        </div>
+                        <div class="px-4">
+                            <h4 class="font-headline font-bold text-2xl">Для собачки</h4>
+                            <p class="text-on-surface-variant">Игрушки нравятся даже самым требовательным питомцам.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div style="max-width: 600px; margin: 0 auto 2rem;">
-                <p style="text-align: center; font-size: 1.1rem; line-height: 1.5; margin-bottom: 1rem;">
-                    Напиши или позвони чтобы заказать игрушку
-                </p>
-                <p style="text-align: center; font-size: 1.05rem; line-height: 1.5; color: #555;">
-                    <strong>Стоимость:</strong> все игрушки делаются только по стоимости материалов. Если есть желание отблагодарить — можно скинуть денюжку сверху как получится.
-                </p>
-            </div>
+        </section>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 500px; margin: 0 auto;">
-                <a href="https://t.me/mashavyazhet" class="btn btn-primary" style="text-align: center;">
-                    📱 Телеграм
-                </a>
-                <a href="tel:+79165213447" class="btn btn-secondary" style="text-align: center;">
-                    📞 +7 916 521 34 47
-                </a>
+        <!-- Contact Section -->
+        <section class="py-32 px-8" id="contact">
+            <div class="max-w-4xl mx-auto bg-surface-container-low rounded-xl p-12 md:p-20 text-center space-y-12 relative overflow-hidden shadow-2xl shadow-primary/5">
+                <div class="absolute top-0 left-0 w-full h-2 bg-primary"></div>
+                <div class="space-y-6">
+                    <h2 class="font-headline text-5xl font-extrabold text-on-surface tracking-tight">Связаться со мной</h2>
+                    <div class="space-y-4">
+                        <p class="text-on-surface-variant text-lg">Готовы выбрать себе друга или хотите заказать что-то уникальное? Я всегда на связи!</p>
+                        <div class="bg-primary/5 p-6 rounded-2xl border border-primary/10 max-w-2xl mx-auto">
+                            <p class="text-on-surface font-semibold text-lg leading-relaxed">
+                                <span class="text-primary font-bold">Стоимость:</span> все игрушки делаются только по стоимости материалов. 
+                            </p>
+                            <p class="text-on-surface-variant text-sm mt-2">
+                                Если есть желание отблагодарить — можно скинуть денюжку сверху как получится.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <a class="inline-flex items-center justify-center gap-3 bg-[#0088cc] text-white px-10 py-5 rounded-xl font-headline font-bold text-xl bouncy-hover shadow-lg shadow-[#0088cc]/20" href="https://t.me/mashavyazhet">
+                        📱 Telegram
+                    </a>
+                    <a class="inline-flex items-center justify-center gap-3 bg-secondary text-on-secondary px-10 py-5 rounded-xl font-headline font-bold text-xl bouncy-hover shadow-lg shadow-secondary/20" href="tel:+79165213447">
+                        📞 +7 916 521 34 47
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                <h3>Маша вяжет</h3>
-                <p>Вязаные игрушки крючком</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Навигация</h4>
-                    <ul>
-                        <li><a href="#home">Главная</a></li>
-                        <li><a href="#about">Моя история</a></li>
-                        <li><a href="#gallery">Работы</a></li>
-                        <li><a href="#contact">Контакты</a></li>
-                    </ul>
-                </div>
+    <footer class="w-full rounded-t-[3rem] mt-20 bg-[#f5f4e8] text-[#366758] font-manrope text-sm leading-relaxed">
+        <div class="flex flex-col md:flex-row justify-between items-center px-12 py-12 gap-8 max-w-7xl mx-auto">
+            <div class="text-lg font-bold text-[#894c5c]">Маша вяжет</div>
+            <div class="flex gap-8">
+                <a class="text-[#1b1c15]/70 hover:text-[#894c5c] hover:translate-y-[-2px] transition-all" href="https://t.me/mashavyazhet">Telegram</a>
+                <a class="text-[#1b1c15]/70 hover:text-[#894c5c] hover:translate-y-[-2px] transition-all" href="mailto:contact@example.com">Email</a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Маша вяжет. Все права защищены.</p>
+            <div class="text-[#1b1c15]/60">
+                © 2025 Маша вяжет. Сделано с любовью и теплом.
             </div>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
+
